@@ -1,19 +1,25 @@
-print("Enter the two numbers: ")
-x = float(input())
-y = float(input())
+print("Choose 2 numbers: ")
+x = int(input())
+y = int(input())
 
-print("Choose what operand do you wanna do (*, /, +, -): ")
+print("Choose the operand (+, -, *, /)")
+result = None
 choice = input()
-result = 0;
 
 match choice:
-    case '*':
-        result = x * y;
-    case '-':
-        result = x - y;
-    case '+':   
+    case '+':
         result = x + y
+    case '-':
+        result = x - y
+    case '*':
+        result = x * y
     case '/':
-        result = x / y
+        if y != 0:
+            result = x / y
+        else:
+            print("Error: Division by 0 is not acceptable")
+    case _:
+        print("Invalid operator!")
         
-print(result) 
+if result is not None:
+    print(f"Result: {result:.2f}")
